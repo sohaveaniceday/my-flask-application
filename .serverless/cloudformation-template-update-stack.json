@@ -77,6 +77,25 @@
                       "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverless-flask-dev-app:*:*"
                     }
                   ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "dynamodb:Query",
+                    "dynamodb:Scan",
+                    "dynamodb:GetItem",
+                    "dynamodb:PutItem",
+                    "dynamodb:UpdateItem",
+                    "dynamodb:DeleteItem"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::GetAtt": [
+                        "UsersDynamoDBTable",
+                        "Arn"
+                      ]
+                    }
+                  ]
                 }
               ]
             }
@@ -105,7 +124,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverless-flask/dev/1558118320616-2019-05-17T18:38:40.616Z/serverless-flask.zip"
+          "S3Key": "serverless/serverless-flask/dev/1558118758495-2019-05-17T18:45:58.495Z/serverless-flask.zip"
         },
         "FunctionName": "serverless-flask-dev-app",
         "Handler": "wsgi_handler.handler",
@@ -117,21 +136,26 @@
           ]
         },
         "Runtime": "python3.6",
-        "Timeout": 6
+        "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "USERS_TABLE": "users-table-dev"
+          }
+        }
       },
       "DependsOn": [
         "AppLogGroup",
         "IamRoleLambdaExecution"
       ]
     },
-    "AppLambdaVersion7ZYgJ9DjL9tZulCo1CbNA37SPD48iBzNvqGQeNY9LU": {
+    "AppLambdaVersionrabuLpw8OtvLzTdJD5m58rFRc7vqMetHTemjcyELs": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AppLambdaFunction"
         },
-        "CodeSha256": "hnRQuLJlaE6JkR/cOg3Nl+yfTW5ciBQtQtcvk6/f/A0="
+        "CodeSha256": "INyISGPgPqEJ1eY2d13Tnt9yal5g0CMUrOfsqTW8Nnk="
       }
     },
     "ApiGatewayRestApi": {
@@ -249,7 +273,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1558118299900": {
+    "ApiGatewayDeployment1558118734944": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -308,6 +332,28 @@
           ]
         }
       }
+    },
+    "UsersDynamoDBTable": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "userId",
+            "AttributeType": "S"
+          }
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "userId",
+            "KeyType": "HASH"
+          }
+        ],
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 1,
+          "WriteCapacityUnits": 1
+        },
+        "TableName": "users-table-dev"
+      }
     }
   },
   "Outputs": {
@@ -319,7 +365,7 @@
     "AppLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AppLambdaVersion7ZYgJ9DjL9tZulCo1CbNA37SPD48iBzNvqGQeNY9LU"
+        "Ref": "AppLambdaVersionrabuLpw8OtvLzTdJD5m58rFRc7vqMetHTemjcyELs"
       }
     },
     "ServiceEndpoint": {
