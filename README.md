@@ -20,7 +20,7 @@ curl -H "Content-Type: application/json" -X GET https://unevo7lf61.execute-api.u
 
 ## Approach Walk-through
 
-* Whilst I have built Flask apps using SQL and Heroku deployment, I had never used AWS Lambda before, so I took it upon my self to research the platform before starting the task. 
+* Whilst I had built Flask apps using SQL and Heroku deployment, I had never used AWS Lambda before, so I took it upon my self to research the platform before starting the task. 
 
 * I watched the below YouTube video, which gave a good overview of the platform, as well as looking at the official AWS documents.
 
