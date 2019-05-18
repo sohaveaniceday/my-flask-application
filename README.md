@@ -6,13 +6,17 @@
 
 In terminal:
 
+```
 curl -H "Content-Type: application/json" -X POST https://unevo7lf61.execute-api.us-east-1.amazonaws.com/dev/users -d '{"userId": "user1", "name": "James Bond"}'
+```
 
 #### Get Request
 
 In terminal:
 
+```
 curl -H "Content-Type: application/json" -X GET https://unevo7lf61.execute-api.us-east-1.amazonaws.com/dev/users/user1
+```
 
 ## Approach Walk-through
 
