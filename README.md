@@ -28,7 +28,7 @@ curl -H "Content-Type: application/json" -X GET https://unevo7lf61.execute-api.u
 
     * https://aws.amazon.com/lambda/
 
-* After this, I decided to create an initial AWS Lambda function using the below tutorial. This taught me how to create my function through the official portal, create an Amazon AWS Lambda Zip file using Make, plus edit and test the functions.
+* After this, I decided to create an initial AWS Lambda function using the below tutorial. This taught me how to create my function through the official portal, create an Amazon AWS Lambda Zip file using Make, create a virtual environment, plus edit and test the functions.
 
     * https://www.youtube.com/watch?v=hzlxWBs1Qt4 
 
