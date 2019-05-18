@@ -1,14 +1,18 @@
 # app.py
 
+# Module imports
 import os
 import boto3
 
+# Importing Flask module with associated functions and defining the app variable
 from flask import Flask, jsonify, request
 app = Flask(__name__)
 
+# Establishing dynamodb API and defining database variables
 USERS_TABLE = os.environ['USERS_TABLE']
 client = boto3.client('dynamodb')
 
+# Get request function
 @app.route("/users/<string:user_id>")
 def get_user(user_id):
     resp = client.get_item(
@@ -26,14 +30,13 @@ def get_user(user_id):
         'name': item.get('name').get('S')
     })
 
-
+# Post request function
 @app.route("/users", methods=["POST"])
 def create_user():
     user_id = request.json.get('userId')
     name = request.json.get('name')
     if not user_id or not name:
         return jsonify({'error': 'Please provide userId and name'}), 400
-
     resp = client.put_item(
         TableName=USERS_TABLE,
         Item={
@@ -41,7 +44,7 @@ def create_user():
             'name': {'S': name}
         }
     )
-
+    
     return jsonify({
         'userId': user_id,
         'name': name
