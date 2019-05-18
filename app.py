@@ -1,7 +1,6 @@
 # app.py
 
 import os
-
 import boto3
 
 from flask import Flask, jsonify, request
@@ -9,12 +8,6 @@ app = Flask(__name__)
 
 USERS_TABLE = os.environ['USERS_TABLE']
 client = boto3.client('dynamodb')
-
-
-@app.route("/")
-def hello():
-    return "Hello World!"
-
 
 @app.route("/users/<string:user_id>")
 def get_user(user_id):
