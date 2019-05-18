@@ -34,11 +34,11 @@ curl -H "Content-Type: application/json" -X GET https://unevo7lf61.execute-api.u
 
     * GitHub Repo: https://github.com/sohaveaniceday/lambda-test
 
-* I then proceeded with the task, by creating my Flask App in a similar approach to some of my previous projects. Whilst I was able to deploy the app (thanks to Zappa) and achieve 'Hello World' from a basic Lambda function, I quickly realised that I was struggling to implement SQL as the main database in order to make my get/post requests.
+* I then proceeded with the task by creating my Flask App in a similar approach to some of my previous projects. Whilst I was able to deploy the app (thanks to Zappa) and achieve 'Hello World' from a basic Lambda function, I quickly realised that I was struggling to implement SQL as the main database in order to make my get/post requests.
 
     * GitHub Repo: https://github.com/sohaveaniceday/flask-app 
 
-* Having done some research online, I found the best way of implement a database on AWS Lambda was through DynamoDB, Amazon's own NoSQL database service. With the the accumulated knowledge I had obtained and the below tutorial, I started from scratch and proceeded with the task in earnest.
+* Having done some research online, I found the best way of implement a database on AWS Lambda was through DynamoDB, Amazon's own NoSQL database service. With the the accumulated knowledge I had obtained and the below tutorial which incorporated DynamoDB, I started the task from scratch and proceeded in this direction.
 
     * https://serverless.com/blog/flask-python-rest-api-serverless-lambda-dynamodb/
 
@@ -48,7 +48,7 @@ curl -H "Content-Type: application/json" -X GET https://unevo7lf61.execute-api.u
 
 If I had more time with the task I would definitely add elements like error handling, authentication, and path-specific routing. These are the cornerstone for any REST API and vital for any fully-fledged apps.
 
-I learnt a huge amount doing this task. I didn't realise it was possible to deploy and use AWS functionality all from the terminal, for instance. The biggest learning, however, was when approaching a task with a lot of unknown components it's best to start with the base fundamentals before jumping straight into a task. I found little challenges a lot easier once I had built up my knowledge and was able to tackle them with hard-earned logic.
+I learnt a huge amount doing this task. I didn't realise it was possible to deploy and use AWS functionality all from the terminal, for instance. The biggest learning, however, was when approaching a task with a lot of unknown components it's best to start with the base fundamentals before jumping straight into a task. I found challenges a lot easier once I had built up my knowledge and was able to tackle them with hard-earned logic. A programmer should also not be afraid to start again if they find themselves reaching a dead end with a particualar piece of technology.
 
 
 ## Brief
